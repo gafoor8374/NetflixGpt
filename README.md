@@ -20,3 +20,12 @@
 - Netflis GPT
  - Sarch bar
  - movie suggestion
+
+
+
+ 1. We can create a Login, body, browse components
+ 2. We install the rect-router-dom as a dependencies npm i -D
+ 3. Used for routing in React apps
+ 4. Handles pages like:
+
+ form validation then use ### formik library ###
