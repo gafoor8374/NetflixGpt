@@ -4,6 +4,12 @@
 
 - create-react-app
 - configure tailwind version 3
+- header
+- Routing
+- login 
+- sign up
+- Form validation through regex help
+
 
 
 
