@@ -9,6 +9,14 @@
 - login 
 - sign up
 - Form validation through regex help
+- useRef
+- use firebase for deploy and authencation process
+- create a signup user account
+- Ccraete sign in user api
+- create redux store into userSlice
+- implement signout feature
+- update profile api
+- update navigate feature.
 
 
 
