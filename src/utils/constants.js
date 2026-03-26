@@ -14,3 +14,5 @@ export const API_OPTIONS = {
 };
 
 export const API_KEY ='541f6da548c245cc03ab42756c20bd8c';
+
+export const IMG_URL = "https://image.tmdb.org/t/p/w500/";

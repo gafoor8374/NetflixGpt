@@ -18,7 +18,7 @@ setInfo(false);
         {info && <p className='text-lg w-1/4 p-4 transition-opacity'>{overview}</p>}
 
         <div className='m-2'>
-            <button className='bg-gray-500 text-white p-4 wx-4 rounded-lg px-8'>▶️ Play</button>
+            <button className='bg-white text-black p-4 wx-4 rounded-lg px-8 hover:bg-opacity-75'>▶️ Play</button>
             <button className='bg-gray-500 text-white p-4 wx-4 rounded-lg px-8 m-2'>More Info</button>
         </div>
     </div>

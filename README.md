@@ -20,7 +20,12 @@
 - update the navigate into child component to router into header 
 - unsubscribe to the onAuthStateChanged 
 - ADD hard coded values to the constants file
-- Creating browse page 
+- Registere with TMDB for crating access token and key 
+- Get data from TMDB now playing movie API
+- custom hook for noe playin movies
+- create movieslice
+- update the movie data in movies
+- In browse page 
   - Main movie contaniner
    - video background
    - video title
@@ -28,6 +33,15 @@
  - Movie List Container
   - frame movie
   - movie title
+- fetch data from trailer video data
+- update the store with tailerdata
+- embede the youtube video and autoplay and mute
+- ssecond container
+- movie List
+- movie card
+- TMDB IMG. CDN
+
+
 ## Video background ### using state variable is here
 import React, { useEffect, useState } from "react";
 import { API_OPTIONS } from "../utils/constants";
