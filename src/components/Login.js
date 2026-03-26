@@ -3,14 +3,13 @@ import Header from "./Header";
 import { isValidateFormData } from "../utils/validate";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {auth} from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BG_LOGO, PROFILE_URL } from "../utils/constants";
 
 function Login() {
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const fullName = useRef(null);
@@ -37,7 +36,7 @@ function Login() {
       //sign up
       createUserWithEmailAndPassword(
         auth,
-        email.current.value,
+        email.current.value.toLowerCase(),
         password.current.value
       )
         .then((userCredential) => {
@@ -45,7 +44,7 @@ function Login() {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: fullName.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/97434962?v=4&size=64",
+            photoURL: PROFILE_URL,
           })
             .then(() => {
               const {uid ,email, displayName, photoURL} = auth.currentUser;
@@ -54,16 +53,15 @@ function Login() {
                 uid: uid,
                 email: email,
                 displayName: displayName,
-                photoURL: photoURL,
+                photoURL: PROFILE_URL,
               }),
             );
-            navigate('/browse');
             })
             .catch((error) => {
               setErrorMessage(message);
             });
           
-          console.log(user);
+          // console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -72,7 +70,7 @@ function Login() {
         });
     } else {
       // sign in
-      signInWithEmailAndPassword(auth, email.current.value.trim(), password.current.value.trim())
+      signInWithEmailAndPassword(auth, email.current.value.trim().toLowerCase(), password.current.value.trim())
       
         .then((userCredential) => {
           const user = userCredential.user;
@@ -84,7 +82,6 @@ function Login() {
               photoURL: user.photoURL,
             })
           )
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -105,7 +102,7 @@ function Login() {
       <Header />
       <div className="absolute">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/7ea4545e-42d3-4ebf-82fd-0e1984dc6375/web/IN-en-20260316-TRIFECTA-perspective_789c5633-3949-4708-8e6c-8ddfd22ed696_large.jpg"
+          src={BG_LOGO}
           alt="bground-image"
         />
       </div>

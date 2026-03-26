@@ -17,9 +17,17 @@
 - implement signout feature
 - update profile api
 - update navigate feature.
-
-
-
+- update the navigate into child component to router into header 
+- unsubscribe to the onAuthStateChanged 
+- ADD hard coded values to the constants file
+- Creating browse page 
+  - Main movie contaniner
+   - video background
+   - video title
+   - info
+ - Movie List Container
+  - frame movie
+  - movie title
 
 # Planing to our app
 - login Page(before authentication)
