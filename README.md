@@ -28,6 +28,46 @@
  - Movie List Container
   - frame movie
   - movie title
+## Video background ### using state variable is here
+import React, { useEffect, useState } from "react";
+import { API_OPTIONS } from "../utils/constants";
+
+const VideoBackGround = ({ movieId }) => {
+
+  const [trailer, setTrailer ] = useState(null);
+
+  useEffect(() => {
+    trainerVideo();
+  }, []);
+  const trainerVideo = async () => {
+    const data = await fetch(
+      "https://api.themoviedb.org/3/movie/" + movieId + "/videos",
+      API_OPTIONS,
+    );
+
+    const json = await data.json();
+    // console.log(json.results);
+
+    const filterData = json.results.filter((video)=>video.type == "Trailer");
+    const trailerData = filterData.length ? filterData[0] : json.results[0]; // fallback
+    console.log(trailerData);
+    setTrailer(trailerData);
+  };
+  return (
+    <div>
+      {trailer && <iframe
+        src={"https://www.youtube.com/embed/"+ trailer.key}
+        title="YouTube video player"
+    
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        
+      ></iframe>}
+    </div>
+  );
+};
+
+export default VideoBackGround;
 
 # Planing to our app
 - login Page(before authentication)
